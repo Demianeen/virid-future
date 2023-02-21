@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const ResourcesPage = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  return <button>fjdsjfdkshf</button>;
+};
 
-export default ResourcesPage
+export default ResourcesPage;
