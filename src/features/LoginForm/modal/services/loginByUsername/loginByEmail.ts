@@ -1,0 +1,43 @@
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import type { User } from 'entities/User'
+import { userActions } from 'entities/User'
+import { AUTH_DATA_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
+import type { ThunkConfig } from 'app/providers/StoreProvider/config/stateSchema'
+
+interface LoginByEmailProps {
+  email: string
+  password: string
+}
+
+export const loginByEmail = createAsyncThunk<
+  User,
+  LoginByEmailProps,
+  ThunkConfig<string>
+>(
+  'loginForm/loginByUsername',
+  async (
+    authData,
+    { extra, dispatch, rejectWithValue }
+  ) => {
+    try {
+      const response = await extra.api.post(
+        '/login',
+        authData
+      )
+
+      if (!response.data) {
+        return rejectWithValue('error')
+      }
+
+      localStorage.setItem(
+        AUTH_DATA_LOCALSTORAGE_KEY,
+        JSON.stringify(response.data)
+      )
+      dispatch(userActions.setAuthData(response.data))
+
+      return response.data
+    } catch (error) {
+      return rejectWithValue('error')
+    }
+  }
+)

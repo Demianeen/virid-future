@@ -1,3 +1,5 @@
-import { lazy } from "react";
+import { lazy } from 'react'
 
-export const SupportPageAsync = lazy(() => import("./SupportPage"));
+export const SupportPageAsync = lazy(
+  () => import('./SupportPage')
+)

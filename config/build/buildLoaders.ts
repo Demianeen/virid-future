@@ -1,36 +1,35 @@
-import { BuildOptions } from './types/config';
-import MiniCSSExtractPlugin from 'mini-css-extract-plugin';
-import { RuleSetRule } from "webpack";
+import type webpack from 'webpack'
+import type { BuildOptions } from './types/config'
+import { buildCssLoader } from './loaders/buildCssLoader'
+import { buildSvgLoader } from './loaders/buildSvgLoader'
+import { buildBabelLoader } from './loaders/buildBabelLoader'
 
-export default ({isDev}: BuildOptions): RuleSetRule[] => {
-  const cssLoader = {
-    test: /\.s[ac]ss$/i,
-    use: [
-      // Creates `style` nodes from JS strings
-      isDev ? "style-loader" : MiniCSSExtractPlugin.loader,
-      // Translates CSS into CommonJS
-      {
-        loader: "css-loader",
-        options: {
-          modules: {
-            auto: (resolvePath: string) => resolvePath.includes(".module."),
-            localIdentName: isDev
-              ? "[path][name]__[local]"
-              : "[hash:base64:8]",
-          },
-        },
-      },
-      // Compiles Sass to CSS
-      "sass-loader",
-    ],
-  };
+export default ({
+  isDev,
+}: BuildOptions): webpack.RuleSetRule[] => {
+  const svgLoader = buildSvgLoader()
 
-  // if we use ts-loader we already don't need to use babelß
+  const babelLoader = buildBabelLoader(isDev)
+
+  const cssLoader = buildCssLoader(isDev)
+
+  // if we use ts-loader we already don't need to use babel
   const typescriptLoader = {
     test: /\.tsx?$/,
-    use: "ts-loader",
+    use: 'ts-loader',
     exclude: /node_modules/,
-  };
+  }
 
-  return [typescriptLoader, cssLoader];
-};
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    type: 'asset/resource',
+  }
+
+  return [
+    fileLoader,
+    svgLoader,
+    babelLoader,
+    typescriptLoader,
+    cssLoader,
+  ]
+}

@@ -1,3 +1,3 @@
-import { CompanyPageAsync } from "./ui/CompanyPage.async";
+import { CompanyPageAsync } from './ui/CompanyPage.async'
 
-export { CompanyPageAsync as CompanyPage };
+export { CompanyPageAsync as CompanyPage }

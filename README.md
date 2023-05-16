@@ -1,3 +1,3 @@
-# Innovative agriculture with AI
+# React-production
 
-This project was created as a part of lablab.ai AI startup hackathon
+This repository was created as part of the UlbiTV's course "To production on React"

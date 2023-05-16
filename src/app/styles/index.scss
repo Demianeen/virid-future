@@ -1,11 +1,36 @@
-@import "reset";
-@import "variables/global.scss";
+@import 'reset';
+@import 'variables/global';
+@import 'themes/dark';
+@import 'themes/light';
+
+.app,
+.appStyles {
+  font: var(--font-m);
+  color: var(--primary-color);
+}
 
 .app {
-  font: var(--font-m);
-
+  height: 100vh;
   background: var(--bg-color);
-  color: var(--primary-color);
+}
 
-  min-height: 100vh;
+// scrollbar
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.55rem;
+  height: 0.6rem;
+  scroll-behavior: smooth;
+  scroll-padding: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--card-bg);
+  border-radius: 0.6rem;
 }

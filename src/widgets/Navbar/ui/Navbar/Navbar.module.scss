@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: var(--navbar-height);
+  padding: 0 1rem;
+  background-color: var(--inverted-bg-color);
+}
+
+.section {
+  display: flex;
+  align-items: center;
+
+  &.auth {
+    margin-left: auto;
+  }
+
+  a {
+    margin: 0.4rem;
+  }
+}
