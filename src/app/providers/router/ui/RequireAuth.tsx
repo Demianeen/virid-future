@@ -1,24 +1,27 @@
-import { Navigate, useLocation } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { getUserAuthData } from 'entities/User'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { useNavigate } from 'react-router-dom'
+import netlifyIdentity from 'netlify-identity-widget'
+import { useEffect } from 'react'
 
 export const RequireAuth = ({
   children,
 }: {
   children: JSX.Element
 }) => {
-  const auth = useSelector(getUserAuthData)
-  const location = useLocation()
+  // const auth = useSelector(getUserAuthData)
+  const auth = undefined
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    navigate(-1)
+    netlifyIdentity.open('login')
+    netlifyIdentity.on('login', (user) => {
+      console.log('login', user)
+      navigate(-1)
+    })
+  }, [navigate])
 
   if (auth === undefined) {
-    return (
-      <Navigate
-        to={RoutePath.login}
-        state={{ from: location }}
-        replace
-      />
-    )
+    return null
   }
 
   return children

@@ -122,6 +122,7 @@ export const Button = typedMemo(
       <Tag
         className={classes}
         ref={ref}
+        role='button'
         /* eslint-disable-next-line react/jsx-props-no-spreading */
         {...props}
       >
