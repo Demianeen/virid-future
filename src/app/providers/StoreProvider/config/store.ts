@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { userReducer } from 'entities/User'
 import { $api } from 'shared/api/api'
 import type { CombinedState, Reducer } from 'redux'
 import { pageReducer } from 'widgets/Page'
@@ -23,7 +22,6 @@ export function createReduxStore({
 }: CreateReduxStoreProps) {
   const rootReducers: ReducersList = {
     ...preloadedAsyncReducers,
-    user: userReducer,
     page: pageReducer,
     [rtkApi.reducerPath]: rtkApi.reducer,
   }

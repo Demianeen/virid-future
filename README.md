@@ -1,3 +1,13 @@
-# React-production
+# Vivid future
 
-This repository was created as part of the UlbiTV's course "To production on React"
+## Instructions
+
+1. Clone this repository
+2. Run `npm install`
+3. Run `npm start`
+4. Visit http://localhost:3000/
+
+## Features
+
+- [x] Authorization
+

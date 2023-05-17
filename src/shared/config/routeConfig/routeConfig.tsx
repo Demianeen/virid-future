@@ -1,5 +1,4 @@
 import { AboutPage } from 'pages/AboutPage'
-import { AuthPage } from 'pages/AuthPage'
 import { CompanyPage } from 'pages/CompanyPage'
 import { MainPage } from 'pages/MainPage'
 import { ResourcesPage } from 'pages/ProductsPage'
@@ -18,8 +17,6 @@ export enum AppRoutes {
   PRODUCTS = 'products',
   PREDICT = 'predict',
   SUPPORT = 'support',
-  LOGIN = 'login',
-  SIGNUP = 'signup',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -29,8 +26,6 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.PRODUCTS]: '/products',
   [AppRoutes.PREDICT]: '/features/predict',
   [AppRoutes.SUPPORT]: '/support',
-  [AppRoutes.LOGIN]: '/login',
-  [AppRoutes.SIGNUP]: '/signup',
 }
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> =
@@ -59,13 +54,5 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> =
     [AppRoutes.SUPPORT]: {
       path: RoutePath.support,
       element: <SupportPage />,
-    },
-    [AppRoutes.LOGIN]: {
-      path: RoutePath.login,
-      element: <AuthPage />,
-    },
-    [AppRoutes.SIGNUP]: {
-      path: RoutePath.signup,
-      element: <AuthPage />,
     },
   }

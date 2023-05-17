@@ -1,5 +1,3 @@
-import type { UserSchema } from 'entities/User'
-import type { LoginFormSchema } from 'features/LoginForm'
 import type {
   EnhancedStore,
   Reducer,
@@ -11,12 +9,10 @@ import type { PageSchema } from 'widgets/Page'
 import type { rtkApi } from 'shared/api/rtkApi'
 
 export interface StateSchema {
-  user: UserSchema
   page: PageSchema
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // Async reducers
-  loginForm?: LoginFormSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
