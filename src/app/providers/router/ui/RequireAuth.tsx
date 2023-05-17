@@ -1,26 +1,25 @@
 import { useNavigate } from 'react-router-dom'
-import netlifyIdentity from 'netlify-identity-widget'
 import { useEffect } from 'react'
+import { useAuth } from 'shared/lib/hooks/useAuth/useAuth'
 
 export const RequireAuth = ({
   children,
 }: {
   children: JSX.Element
 }) => {
-  // const auth = useSelector(getUserAuthData)
-  const auth = undefined
   const navigate = useNavigate()
+  const { login, isLogged } = useAuth({
+    onAuth: () => navigate(1),
+  })
 
   useEffect(() => {
-    navigate(-1)
-    netlifyIdentity.open('login')
-    netlifyIdentity.on('login', (user) => {
-      console.log('login', user)
+    if (!isLogged) {
       navigate(-1)
-    })
-  }, [navigate])
+      login()
+    }
+  }, [isLogged, login, navigate])
 
-  if (auth === undefined) {
+  if (!isLogged) {
     return null
   }
 

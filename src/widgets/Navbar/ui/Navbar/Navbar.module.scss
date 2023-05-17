@@ -8,21 +8,17 @@
   background-color: var(--inverted-bg-color);
 }
 
-.section {
-  display: flex;
-  align-items: center;
-
-  &.auth {
-    margin-left: auto;
-  }
-
-  a {
-    margin: 0.4rem;
-  }
+.auth {
+  margin-left: auto;
 }
 
-.logo {
-  width: 2rem;
-  height: 2rem;
-  margin-right: 0.5rem;
+.logoBtn {
+  width: min-content;
+  height: min-content;
+
+  .logo {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+  }
 }

@@ -7,6 +7,9 @@ import {
 } from 'shared/ui/Button/Button'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import Logo from 'shared/assets/images/logo.jpeg'
+import { HStack } from 'shared/ui/Stack'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from 'shared/lib/hooks/useAuth/useAuth'
 import { getNavbarItems } from '../../model/selectors/getNavbarItems/getNavbarItems'
 import { NavbarItem } from '../NavbarItem/NavbarItem'
 import styles from './Navbar.module.scss'
@@ -16,6 +19,13 @@ interface NavbarProps {
 }
 
 export const Navbar = ({ className }: NavbarProps) => {
+  const navigate = useNavigate()
+  const { login, signup, logout, isLogged } = useAuth({
+    onLogout: () => {
+      navigate(RoutePath.main)
+    },
+  })
+
   return (
     <nav
       className={classNames(styles.navbar, {}, [className])}
@@ -24,6 +34,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         theme={ButtonTheme.CLEAR}
         as={AppLink}
         to={RoutePath.main}
+        className={styles.logoBtn}
       >
         <img
           src={Logo}
@@ -31,22 +42,27 @@ export const Navbar = ({ className }: NavbarProps) => {
           className={styles.logo}
         />
       </Button>
-      <ul className={styles.section}>
+      <HStack gap={1} as='ul'>
         {getNavbarItems().map((item) => (
           <NavbarItem key={item.path} {...item} />
         ))}
-      </ul>
-      <ul
-        className={classNames(styles.section, {}, [
-          styles.auth,
-        ])}
-      >
-        <NavbarItem text='Login' path={RoutePath.login} />
-        <NavbarItem
-          text='Sign Up'
-          path={RoutePath.signup}
-        />
-      </ul>
+      </HStack>
+      <HStack as='ul' gap={1} className={styles.auth}>
+        {!isLogged ? (
+          <>
+            <Button type='button' onClick={login}>
+              Login
+            </Button>
+            <Button type='button' onClick={signup}>
+              Sign up
+            </Button>
+          </>
+        ) : (
+          <Button type='button' onClick={logout}>
+            Logout
+          </Button>
+        )}
+      </HStack>
     </nav>
   )
 }
