@@ -1,4 +1,4 @@
-# Vivid future
+# Virid future
 
 ## Instructions
 
