@@ -1,5 +1,9 @@
 import { HStack, VStack } from 'shared/ui/Stack'
-import { Text, TextSize } from 'shared/ui/Text/Text'
+import {
+  Text,
+  TextSize,
+  TextTheme,
+} from 'shared/ui/Text/Text'
 import { Button } from 'shared/ui/Button/Button'
 import type { FormEvent } from 'react'
 import { useCallback } from 'react'
@@ -14,7 +18,7 @@ interface PredictProps {
 export const PredictForm = ({
   className,
 }: PredictProps) => {
-  const [predict, { isLoading, data }] =
+  const [predict, { isLoading, data, isError }] =
     usePredictMutation()
   const onSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>) => {
@@ -40,6 +44,7 @@ export const PredictForm = ({
         type='file'
         label='Upload the file to predict'
         name='file'
+        accept='image/*'
         required
       />
       <HStack gap={0.5}>
@@ -48,6 +53,13 @@ export const PredictForm = ({
         </Button>
         {isLoading && <Spinner />}
       </HStack>
+      {isError && (
+        <Text
+          theme={TextTheme.ERROR}
+          title='Error'
+          text='Something went wrong. Try again later'
+        />
+      )}
       {data && (
         <Text
           title={data.label}
