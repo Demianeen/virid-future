@@ -1,5 +1,5 @@
+import { PredictForm } from 'features/Predict'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { Button } from 'shared/ui/Button/Button'
 import { Page } from 'widgets/Page'
 import styles from './PredictPage.module.scss'
 
@@ -14,7 +14,7 @@ const PredictPage = ({ className }: PredictPageProps) => {
         className,
       ])}
     >
-      <Button type='button'>Predict</Button>
+      <PredictForm />
     </Page>
   )
 }

@@ -1,9 +1,10 @@
-import { VStack } from 'shared/ui/Stack'
+import { HStack, VStack } from 'shared/ui/Stack'
 import { Text, TextSize } from 'shared/ui/Text/Text'
 import { Button } from 'shared/ui/Button/Button'
 import type { FormEvent } from 'react'
 import { useCallback } from 'react'
 import { Input } from 'shared/ui/Input/Input'
+import { Spinner } from 'shared/ui/Spinner/Spinner'
 import { usePredictMutation } from '../../api/predictApi'
 
 interface PredictProps {
@@ -20,17 +21,12 @@ export const PredictForm = ({
       e.preventDefault()
       const form = e.currentTarget
       const formData = new FormData(form)
-      const file = formData.get('file')
 
-      if (file instanceof File) {
-        if (isLoading) return
-        predict(file)
-      }
+      if (isLoading) return
+      predict(formData)
     },
     [isLoading, predict]
   )
-
-  console.log(data)
 
   return (
     <VStack
@@ -46,8 +42,18 @@ export const PredictForm = ({
         name='file'
         required
       />
-      <Button type='submit'>Submit</Button>
-      {data && <Text text={data} />}
+      <HStack gap={0.5}>
+        <Button type='submit'>
+          {data ? 'Resubmit' : 'Submit'}
+        </Button>
+        {isLoading && <Spinner />}
+      </HStack>
+      {data && (
+        <Text
+          title={data.label}
+          text={data.recommendation}
+        />
+      )}
     </VStack>
   )
 }

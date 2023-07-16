@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run start:dev:server\" \"npm run start:dev:client\"",
-    "start:dev:client": "webpack serve --env port=3000 apiUrl=http://127.0.0.1:5000",
-    "start:dev:server": "node ./json-server/index.js",
-    "build:prod": "webpack --env mode=production apiUrl=https://react-production-json-server.vercel.app",
+    "start": "webpack serve --env port=3000 apiUrl=http://94.176.239.64:8000",
+    "build:prod": "webpack --env mode=production apiUrl=http://94.176.239.64:8000",
     "build:prod:analyze": "webpack --env mode=production analyze=true",
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\" && npx prettier --check \"**/*.{ts,tsx}\"",
