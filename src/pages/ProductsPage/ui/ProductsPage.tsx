@@ -13,7 +13,7 @@ const ProductsPage = () => {
       <VStack gap={1.25}>
         <CardText
           title='Products'
-          text='Our MVP product called Virid Future is a web-based platform that allows users to easily upload satellite images and view real-time information about their crops. Our platform provides crop classification, vegetation health analysis, yield prediction, and land use analysis, and utilizes pre-trained models and custom algorithms to process the satellite imagery. We also offer customization options to meet specific user needs.'
+          text='Our MVP product called Virid Punk is a web-based platform that allows users to easily upload satellite images and view real-time information about their crops. Our platform provides crop classification, vegetation health analysis, yield prediction, and land use analysis, and utilizes pre-trained models and custom algorithms to process the satellite imagery. We also offer customization options to meet specific user needs.'
         />
         <Button as={AppLink} to={RoutePath.predict}>
           Request a demo
