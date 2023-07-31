@@ -12,7 +12,7 @@ const ProductsPage = () => {
     <Page background={ProductsPageBackground}>
       <VStack gap={1.25}>
         <CardText
-          title="Welcome to Virid Future's Products Page - Introducing Virid Punk!"
+          title="Introducing Virid Punk!"
           text={
             "Virid Punk - Empowering Farmers with AI Insights\n\n" +
             "Virid Punk is our flagship MVP product, a powerful web-based platform designed to transform the way farmers interact with their crops. With seamless satellite image uploads, real-time insights, and advanced AI algorithms, Virid Punk puts the power of data-driven farming at your fingertips.\n\n" +
