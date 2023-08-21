@@ -7,7 +7,7 @@ import { VStack } from 'shared/ui/Stack';
 import ProductsPageBackground from './productPageBackground.jpg';
 
 const ProductsPage = () => {
-  const greenStyle = { color: 'green' };
+  const greenStyle = { color: 'limegreen' };
   const whiteStyle = { color: 'white' };
 
   return (
