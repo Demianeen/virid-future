@@ -11,14 +11,18 @@ export const getNavbarItems = () => {
       path: RoutePath.company,
       text: 'Company',
     },
-    {
-      path: RoutePath.about,
-      text: 'About Us',
-    },
+    
     {
       path: RoutePath.products,
       text: 'Products',
     },
+    
+    {
+      path: RoutePath.about,
+      text: 'Subscription',
+    },
+    
+    
     {
       path: RoutePath.support,
       text: 'Support',
