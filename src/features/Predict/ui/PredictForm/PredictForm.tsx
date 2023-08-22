@@ -1,36 +1,36 @@
-import { HStack, VStack } from 'shared/ui/Stack'
+import { HStack, VStack } from 'shared/ui/Stack';
 import {
   Text,
   TextSize,
   TextTheme,
-} from 'shared/ui/Text/Text'
-import { Button } from 'shared/ui/Button/Button'
-import type { FormEvent } from 'react'
-import { useCallback } from 'react'
-import { Input } from 'shared/ui/Input/Input'
-import { Spinner } from 'shared/ui/Spinner/Spinner'
-import { usePredictMutation } from '../../api/predictApi'
+} from 'shared/ui/Text/Text';
+import { Button } from 'shared/ui/Button/Button';
+import type { FormEvent } from 'react';
+import { useCallback } from 'react';
+import { Input } from 'shared/ui/Input/Input';
+import { Spinner } from 'shared/ui/Spinner/Spinner';
+import { usePredictMutation } from '../../api/predictApi';
 
 interface PredictProps {
-  className?: string
+  className?: string;
 }
 
 export const PredictForm = ({
   className,
 }: PredictProps) => {
   const [predict, { isLoading, data, isError }] =
-    usePredictMutation()
+    usePredictMutation();
   const onSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault()
-      const form = e.currentTarget
-      const formData = new FormData(form)
+      e.preventDefault();
+      const form = e.currentTarget;
+      const formData = new FormData(form);
 
-      if (isLoading) return
-      predict(formData)
+      if (isLoading) return;
+      predict(formData);
     },
     [isLoading, predict]
-  )
+  );
 
   return (
     <VStack
@@ -61,11 +61,16 @@ export const PredictForm = ({
         />
       )}
       {data && (
-        <Text
-          title={data.label}
-          text={data.recommendation}
-        />
+        <div>
+          <Text
+            title={`Land Type Detected: ${data.label}`}
+          />
+          <Text
+            title='Tips for Maximum Crop Yields:'
+            text={data.recommendation}
+          />
+        </div>
       )}
     </VStack>
-  )
-}
+  );
+};
