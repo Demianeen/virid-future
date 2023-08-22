@@ -47,7 +47,7 @@ const AboutPage = () => {
             Price: $29/month
           </p>
           {/* Replace the following with your actual Stripe Payment Link URL */}
-          <a href="https://buy.stripe.com/6oEcPubhu0zLcPC9AB" style={subscribeButtonStyle}>
+          <a href="https://buy.stripe.com/8wMbLq0CQaal4j63cc" style={subscribeButtonStyle}>
             Subscribe
           </a>
         </div>
