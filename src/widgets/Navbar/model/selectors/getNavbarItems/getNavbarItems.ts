@@ -7,10 +7,7 @@ export const getNavbarItems = () => {
       path: RoutePath.main,
       text: 'Main Page',
     },
-    {
-      path: RoutePath.company,
-      text: 'Company',
-    },
+ 
     
     {
       path: RoutePath.products,
@@ -20,6 +17,11 @@ export const getNavbarItems = () => {
     {
       path: RoutePath.about,
       text: 'Subscription',
+    },
+   
+    {
+      path: RoutePath.company,
+      text: 'Company',
     },
     
     
