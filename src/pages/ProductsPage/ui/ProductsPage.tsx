@@ -59,7 +59,7 @@ const ProductsPage = () => {
             to={RoutePath.predict}
             style={{ padding: '8px 16px' }} // Adjust padding to make the button shorter
           >
-            Request a demo
+            Get Access
           </Button>
         </div>
       </div>
