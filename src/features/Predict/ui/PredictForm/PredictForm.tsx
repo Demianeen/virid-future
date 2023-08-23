@@ -42,7 +42,7 @@ export const PredictForm = ({
       <Text title='Predict' size={TextSize.L} />
       <Input
         type='file'
-        label='Upload the file to predict'
+        label='Upload an image for accurate land type predictions'
         name='file'
         accept='image/*'
         required
@@ -61,15 +61,14 @@ export const PredictForm = ({
         />
       )}
       {data && (
-        <div>
-          <Text
-            title={`Land Type Detected: ${data.label}`}
-          />
-          <Text
-            title='Tips for Maximum Crop Yields:'
-            text={data.recommendation}
-          />
-        </div>
+       <div>
+       <Text title={`Land Type Detected: ${data.label}`} />
+       <Text title='Tips for Maximum Crop Yields:' />
+       {data.recommendation.split('\n').map((line, index) => (
+         <p key={index}>{line}</p>
+       ))}
+     </div>
+     
       )}
     </VStack>
   );
