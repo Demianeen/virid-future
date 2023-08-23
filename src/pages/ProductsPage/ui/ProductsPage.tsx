@@ -37,7 +37,7 @@ const ProductsPage = () => {
             📸 Satellite Image Upload: Easily upload satellite or aerial images of your fields, giving you a bird's-eye view of your crops and surrounding land.
             <br />🌱 Land Cover Classification: <span style={greenStyle}>Virid Punk</span> utilizes cutting-edge AI models to classify different land cover types, enabling you to identify and monitor various vegetation types and land uses with precision.
             <br />🗺️ Land Use Analysis: Understand the optimal land usage for your farm with comprehensive land use analysis. Make informed decisions about crop rotation, irrigation, and more.
-            <br />🔧 Customization Options: We understand that every farm is unique. <span style={greenStyle}>Virid Punk</span> offers customization options to tailor the platform to your specific needs and preferences.
+            <br />🔧 Customization Options: We understand that every farm is unique. <span style={greenStyle}>Virid Punk</span> offers customization options to tailor the platform to your specific needs and preferences.(coming soon!)
             <br /><br />
             Why Choose <span style={greenStyle}>Virid Punk</span>?
             <br /><br />
