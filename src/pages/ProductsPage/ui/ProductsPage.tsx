@@ -56,7 +56,7 @@ const ProductsPage = () => {
         <div style={{ position: 'relative', zIndex: 1 }}>
           <Button
             as={AppLink}
-            to= {'https://buy.stripe.com/8wMbLq0CQaal4j63cc'}
+            to= {RoutePath.predict}
             style={{ padding: '8px 16px' }} // Adjust padding to make the button shorter
           >
             Get Access
