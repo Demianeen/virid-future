@@ -44,7 +44,7 @@ const AboutPage = () => {
             <br />
             Land use analysis recommendations
             <br />
-            Price: $29/month
+            Price: $29/month (7 day free trial for early subscribers)
           </p>
           {/* Replace the following with your actual Stripe Payment Link URL */}
           <a href="https://buy.stripe.com/8wMbLq0CQaal4j63cc" style={subscribeButtonStyle}>
