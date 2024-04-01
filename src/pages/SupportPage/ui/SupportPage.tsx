@@ -12,8 +12,8 @@ const SupportPage = () => {
         </p>
         <p>
           Reach out to us at{' '}
-          <a href="mailto:viridfuture@gmail.com" style={{ color: 'lightgreen' }}>
-            viridfuture@gmail.com
+          <a href="mailto:contact@viridfuture.com" style={{ color: 'lightgreen' }}>
+            contact@viridfuture.com
           </a>
           , and we will get back to you as soon as possible.
         </p>
